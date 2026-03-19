@@ -8,18 +8,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <aside id="sidebar" class="sidebar-menu">
+        <ul class="sidebar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </aside>
+
+    <div id="overlay" class="menu-overlay"></div>
 
     <nav class="navbar">
         <div class="logo">✦ Digital Agency</div>
+        
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
-        <button class="nav-cta">Contact Us</button>
+
+        <div class="nav-right">
+            <button class="nav-cta desktop-only">Contact Us</button>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
+    <button class="nav-cta desktop-only">Contact Us</button>
+</nav>
+<main>
     <header class="hero reveal">
         <div class="hero-container">
             <div class="hero-text">
@@ -130,7 +152,7 @@
         </div>
     </div>
 </section>
-
+</main>
 <footer class="main-footer">
     <div class="footer-grid">
         <div class="footer-col">
@@ -158,6 +180,12 @@
         </div>
     </div>
 </footer>
+    <!-- progress bar -->
+ <div class="scroll-progress" id="progress-bar"></div>
+
+<button id="backToTop" class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>    
 
 <script src="script.js"></script>
 </body>

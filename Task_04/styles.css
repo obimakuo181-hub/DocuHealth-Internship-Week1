@@ -19,26 +19,6 @@ body {
     color: var(--text-dark);
 }
 
-/* Navbar */
-.navbar {
-    position: fixed; /* Stays at the top while scrolling */
-    top: 20px;
-    left: 5%;
-    right: 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    z-index: 1000; /* Stays above all other content */
-    
-    /* The Glass Effect */
-    background: rgba(255, 255, 255, 0.4); 
-    backdrop-filter: blur(15px); /* This creates the frosted glass look */
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-pill);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-}
 
 /* Ensure the hero doesn't get hidden under the fixed nav */
 header.hero {
@@ -48,18 +28,20 @@ header.hero {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
-    background: #e6e6e2;
-    padding: 10px 30px;
-    border-radius: var(--radius-pill);
+    gap: 40px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: #1a1a1a;
     font-weight: 500;
-    font-size: 0.9rem;
+    transition: 0.3s;
 }
+.hamburger {
+    display: none; /* Hidden on big screens */
+}
+
+
 
 .nav-cta {
     background: var(--accent-dark);
@@ -77,10 +59,14 @@ header.hero {
 
 .hero-container {
     display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
     align-items: center;
-    gap: 40px;
+    justify-content: space-between;
 }
-
+.hero-text, .hero-image {
+    flex: 1;
+    min-width: 300px; /* Forces stack when screen is narrow */
+}
 .hero-text {
     flex: 1;
 }
@@ -121,6 +107,9 @@ header.hero {
     object-fit: cover; /* Keeps image proportions while filling the box */
     border-radius: var(--radius-lg);
 }
+
+
+
     /* SECOND NAV STYLING */
 .sub-nav {
     display: flex;
@@ -190,6 +179,112 @@ header.hero {
     padding: 20px 8%;
     margin-top: 20px;
     border-top: 1px solid rgba(0,0,0,0.05); /* Optional: very faint line to separate from hero */
+}
+/* --- NAVIGATION MASTER STYLES --- */
+.navbar {
+    position: fixed;
+    top: 20px; /* Floating style */
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* --- SIDEBAR (MOBILE) --- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Start hidden on the LEFT */
+    width: 280px; /* FIXED WIDTH */
+    height: 100vh;
+    background: white;
+    z-index: 3000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 100px 40px;
+}
+
+.sidebar-menu.active {
+    left: 0; /* Slide in */
+}
+
+.sidebar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Overlay for dimming background */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 2500;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* --- RESPONSIVE LOGIC --- */
+@media (max-width: 992px) {
+    .nav-links, .desktop-only {
+        display: none; /* Hide desktop nav */
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-dark);
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    /* Hamburger Animation to X */
+    .hamburger.toggle span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .hamburger.toggle span:nth-child(2) { opacity: 0; }
+    .hamburger.toggle span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 }
 
 @media (max-width: 768px) {
@@ -335,10 +430,12 @@ header.hero {
     margin-bottom: 40px;
 }
 
-.team-grid {
+/* Responsive Grid Strategy */
+.team-grid, .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-    gap: 20px;
+    /* This makes it 4 columns on desktop, 2 on tablet, 1 on mobile automatically */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
 }
 
 .team-card img {
@@ -460,6 +557,50 @@ header.hero {
     transform: translateY(0) !important;
 }
 
+ /* SCROLL PROGRESS */
+/* Scroll Progress Bar at the very top */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(to right, #666, #000);
+    z-index: 2000;
+    transition: width 0.1s ease-out;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--accent-dark);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background: #333;
+}
+
+/* Button Hover State - Growing effect */
+.btn-main:active, .btn-sub-nav:active {
+    transform: scale(0.95);
+} 
+
+
+
+
 /* Staggering for the 3-Column Reviews */
 .review-card:nth-child(2) { transition-delay: 0.2s; }
 .review-card:nth-child(3) { transition-delay: 0.4s; }
@@ -511,12 +652,67 @@ header.hero {
 }
 
 /* Basic Mobile Responsiveness */
+
+
+/* --- FIXED & STICKY NAVBAR --- */
+
+
+
+
+/* Hamburger Icon (Hidden on Desktop) */
+.hamburger {
+    display: none; 
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-dark);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* --- MOBILE RESPONSIVE (THE SLIDE-IN MENU) --- */
 @media (max-width: 768px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
     }
-    .hero-text h1 { font-size: 2.5rem; }
-    .nav-links { display: none; } /* Hide nav on mobile for simplicity */
+
+    .nav-links {
+        position: fixed;
+        right: -100%; /* Start off-screen */
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        transition: 0.4s ease-in-out;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    }
+
+    /* This class is added by JavaScript when you click the hamburger */
+    .nav-links.active {
+        right: 0; 
+    }
+
+    /* Hide the desktop button on mobile */
+    .nav-cta.desktop-only {
+        display: none;
+    }
+
+    /* Hamburger Animation to 'X' */
+    .hamburger.toggle span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .hamburger.toggle span:nth-child(2) { opacity: 0; }
+    .hamburger.toggle span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+}
+
+/* Push the Hero down so it doesn't hide behind the sticky nav */
+header.hero {
+    padding-top: 120px; 
 }
 
