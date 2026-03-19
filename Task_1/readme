@@ -1,0 +1,16 @@
+🚀 Dashboard Overview
+This is a Modern Admin Dashboard built with a focus on seamless responsiveness and synchronized layout transitions. It features a custom-built navigation system that adapts to any screen size without layout breaking.
+
+Core Functionality
+Synchronized Navigation: The sidebar and top navigation bar are mathematically linked via CSS. When the sidebar toggles between expanded (250px) and collapsed (73px), the main dashboard and header adjust their position and width in perfect sync to prevent overlapping.
+
+Adaptive Activity Feed: Uses a Flexbox-grow logic (flex: 1). On large screens, data columns (Name, Email, Status) stretch to fill the entire page width. On mobile, it automatically switches to a horizontal scroll to keep data readable.
+
+Intelligent Mobile UI: On small screens, the menu text is hidden by default to save space but intelligently reappears when the hamburger menu is toggled.
+
+Theme Engine: Features a native Dark Mode toggle that swaps the entire color palette using CSS variables for a smooth, flicker-free user experience.
+
+
+This is the link to the original code
+
+https://youtu.be/AyV954yKRSw?si=F4aws0SYYAypuuV7
