@@ -1,0 +1,135 @@
+/* Reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body - soft hospital gradient */
+body {
+  background: linear-gradient(135deg, #f8faff, #ffffff);
+  min-height: 100vh;
+  color: #333;
+  padding: 20px;
+}
+
+/* Visually hidden class for accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* Header */
+header {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #0e4bf1;
+  margin-bottom: 15px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 10px 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.controls input {
+  flex: 1 1 200px;
+}
+
+.controls select {
+  flex: 0 0 160px;
+}
+
+.controls button {
+  background-color: #0e4bf1;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background-color: #0839a9;
+}
+
+/* Patient List */
+.patient-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* Patient Card */
+.patient-card {
+  flex: 1 1 calc(33% - 20px);
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.patient-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.patient-card h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.patient-card p {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Status Badges */
+.status {
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #fff;
+  display: inline-block;
+}
+
+.status.Pending { background-color: #ff9800; }
+.status.Completed { background-color: #4caf50; }
+.status.Cancelled { background-color: #f44336; }
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .patient-card { flex: 1 1 calc(50% - 20px); }
+}
+
+@media screen and (max-width: 500px) {
+  .patient-card { flex: 1 1 100%; }
+  .controls { flex-direction: column; }
+}
