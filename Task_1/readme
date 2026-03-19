@@ -11,6 +11,14 @@ Intelligent Mobile UI: On small screens, the menu text is hidden by default to s
 Theme Engine: Features a native Dark Mode toggle that swaps the entire color palette using CSS variables for a smooth, flicker-free user experience.
 
 
-This is the link to the original code
+main structure on how it works =
+Sidebar toggle → class switching
+Dark mode → class + localStorage
+Search → loop + index sync across columns
+UI structure → column-based fake table
+
+
+
+Link to design here..
 
 https://youtu.be/AyV954yKRSw?si=F4aws0SYYAypuuV7
