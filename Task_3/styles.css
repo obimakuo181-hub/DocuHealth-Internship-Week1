@@ -42,14 +42,33 @@ body {
   --z-tooltip: 10;
   --z-fixed: 1000; /* Keeping your header fix */
 }
+    /* FOR MY IMAGE */
 
-
-        /* ANIMATION CSS */
-#camera3d {
-  width: 100%;
-  height: 100%;
+.home__image {
   position: relative;
-  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__img {
+  width: 280px; /* Adjust size based on your preference */
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%; /* Makes the image a circle */
+  border: 5px solid var(--first-color); /* Adds a professional border */
+  z-index: 10;
+}
+
+/* Optional: Adding a floating animation to replace the 3D movement */
+.home__img {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
       /* responsive typography */
 @media screen and (min-width: 1150px){

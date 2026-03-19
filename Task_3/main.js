@@ -174,7 +174,7 @@ modal.addEventListener('click', (e) => {
     modal.classList.remove('active')
   }
 })                  
-
+/*
 //     Animation JS  
 
 // ---- THREE.JS 3D CAMERA SETUP ----
@@ -266,3 +266,4 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(container.clientWidth, container.clientHeight);
 });
+*/
