@@ -1,0 +1,473 @@
+:root {
+    --bg-color: #f3f3f1;
+    --text-dark: #1a1a1a;
+    --text-muted: #666;
+    --accent-dark: #121212;
+    --radius-lg: 30px;
+    --radius-pill: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    background: #e6e6e2;
+    padding: 10px 30px;
+    border-radius: var(--radius-pill);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.nav-cta {
+    background: var(--accent-dark);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 8%;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+.btn-main {
+    background: var(--accent-dark);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: 550px;
+    object-fit: cover; /* Keeps image proportions while filling the box */
+    border-radius: var(--radius-lg);
+}
+    /* SECOND NAV STYLING */
+.sub-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    margin-top: 40px; /* Space it out from the hero */
+}
+
+.sub-nav-container {
+    display: flex;
+    gap: 40px;
+}
+
+.sub-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* The 'Active' state styling */
+.sub-link.active {
+    opacity: 1;
+}
+
+.sub-link:not(.active) {
+    opacity: 0.5; /* Mutes the other links like in the screenshot */
+}
+
+.sub-link:hover {
+    opacity: 1;
+}
+
+.sub-link-btn {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--text-dark); /* Subtle underline style */
+    padding-bottom: 2px;
+}
+/* Styling for the Successful Projects button */
+.btn-sub-nav {
+    text-decoration: none;
+    color: var(--text-dark);
+    border: 1px solid #ccc; /* Light border like the screenshot */
+    padding: 8px 20px;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-sub-nav:hover {
+    background-color: var(--text-dark);
+    color: white;
+    border-color: var(--text-dark);
+}
+
+/* Adjusting the sub-nav to align the button perfectly */
+.sub-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.05); /* Optional: very faint line to separate from hero */
+}
+
+@media (max-width: 768px) {
+    /* Instead of hiding it, let's make the sub-nav wrap */
+    .sub-nav {
+        flex-direction: column; /* Stacks the links above the button */
+        gap: 20px;
+        padding: 20px 5%;
+        align-items: center; /* Centers everything on mobile */
+    }
+
+    .sub-nav-container {
+        gap: 20px;
+        flex-wrap: wrap; /* Allows links to go to a second line if needed */
+        justify-content: center;
+    }
+
+    .sub-nav-right {
+        display: block; /* Ensures the button is visible */
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn-sub-nav {
+        width: 80%; /* Makes the button nice and tap-able on a phone */
+        padding: 12px;
+    }
+}
+    /* banner styling */
+.banner-section {
+    padding: 60px 8%;
+}
+
+.banner-card {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    border-radius: 40px; /* Extra large rounding like the image */
+    overflow: hidden; /* Clips the background image to the rounded corners */
+    display: flex;
+    align-items: center;
+    padding: 60px;
+}
+
+/* The content inside the banner */
+.banner-content {
+    position: relative;
+    z-index: 2; /* Keeps text above the dark overlay */
+    color: white;
+}
+
+.banner-content h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* The transparent/outline button */
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 12px 25px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: black;
+}
+
+/* Background Image Container */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.banner-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Overlay to make text pop */
+.banner-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust 0.5 for more or less darkness */
+}
+
+    /* SECTION 2 AND 3 STYLES */
+/* 3-Column Review Grid */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 30px;
+    padding: 60px 8%;
+}
+
+.review-card {
+    text-align: left;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.review-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.review-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 4-Column Team Section */
+.team-section {
+    padding: 60px 8%;
+    background-color: #fff; /* Slight contrast from the off-white bg */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 20px;
+}
+
+.team-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.team-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.team-card span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+    /* LAST SECTION  */
+ /* Details Section */
+.details-section {
+    padding: 80px 8%;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+/* This class swaps the order for the second row */
+.detail-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.detail-image {
+    flex: 1;
+}
+
+.detail-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.detail-text {
+    flex: 1;
+}
+
+.detail-text span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-text h2 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+}
+
+.detail-text p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+/* Footer Styling */
+.main-footer {
+    background-color: #121212;
+    color: white;
+    padding: 80px 8% 40px;
+    border-radius: 40px 40px 0 0; /* Curves the top of the footer */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-col h3, .footer-col h4 {
+    margin-bottom: 20px;
+}
+
+.footer-col a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.social-icons span {
+    margin-right: 15px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/* Final Mobile Fixes */
+@media (max-width: 768px) {
+    .detail-row, .detail-row.reverse {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}   
+
+/* Responsive Fix */
+@media (max-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 on tablets */
+    .reviews-grid { grid-template-columns: repeat(1, 1fr); } /* Stack reviews */
+}
+
+@media (max-width: 600px) {
+    .team-grid { grid-template-columns: 1fr; } /* Single column on phones */
+}  
+    
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+    .banner-card {
+        padding: 40px 20px;
+        min-height: 300px;
+    }
+    .banner-content h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Basic Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Hide nav on mobile for simplicity */
+}
