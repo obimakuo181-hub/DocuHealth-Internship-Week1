@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn-icons-png.flaticon.com/32/685/685655.png">
+
+   <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css">
+
+              <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet"> 
+  
+      <!-- FOR MY ANIMATION -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>    
+
+            <!-- CSS -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Austin's Portfolio</title>
+
+  </head>
+  <body>
+                <!-- header -->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo">Portfolio</a>
+
+        <div class="nav__menu" id="nav__menu">
+          <ul class="nav__list">
+            <li>
+              <a href="#home" class="nav__link active-link">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li><a href="#services" class="nav__link">Services</a>
+            </li> 
+            <a href="#skills" class="nav__link">Skills</a>
+          </li>
+           <li>
+            <a href="#projects" class="nav__link">Projects</a>
+          </li>
+            <li>
+              <a href="#contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
+          
+              <!-- close button -->
+             <div class="nav__close" id="nav__close">
+              <i class="fa-solid fa-xmark"></i>
+             </div>  
+        </div>
+
+            <!-- toogle menu -->
+        <div class="nav__toggle" id="nav__toggle">
+           <i class="fa-solid fa-bars"></i>
+        </div>     
+      </nav>
+      
+    </header>
+            <!-- main -->
+    <main class="main">
+        <section class="home section" id="home">
+  <div class="home__container container grid">
+
+    <!-- LEFT SIDE (Image + Socials) -->
+    <div class="home__content">
+      
+              <!-- ANIMATION SECTION -->
+          <!-- 3D Camera Container -->
+              <div class="home__image">
+                <div id="camera3d"></div>
+              </div>
+
+
+      <div class="home__social">
+        <a href="#" target="_blank" class="home__link">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="#" target="_blank" class="home__link">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="#" target="_blank" class="home__link">
+          <i class="fa-brands fa-dribbble"></i> 
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE (Text Content) -->
+<div class="home__data">
+  <h3 class="home__subtitle">
+    Hello, it's Me <span><h1>Makuochukwu Gabriel</h1></span>
+  </h3>
+  <p class="home__description">
+    Passionate about creating clean, functional, and user-centered digital experiences.
+  </p>
+
+  <h1 class="home__title">
+    I'm a <span id="home__typed"></span>
+  </h1>
+
+  
+  <div class="home__buttons">
+    <a href="#contact" class="button">Hire Me</a>
+    <a href="#projects" class="button button__ghost">Projects</a>
+  </div>
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+        <section class="about section" id="about">
+          <div class="about__container" id="about">
+            <div class="about__content">
+              <div class="about__data">
+                <h2 class="section__title">About Me</h2>
+
+                <p class="about__description">
+                 <!-- // add small description abiyt yoursrelf  -->
+                  An excellent mind, a photographer specialized in turning ordinary moments into extraordinary visuals. My work blends creativity, emotion, and precision to create images that tell powerful and lasting stories.
+                </p>
+
+                <a href="#contact" class="button button__ghost">Contact Me</a>
+              </div>
+            </div>
+                    <!-- add another image -->
+            <div class="about__image">
+              <img src="./file_00000000e294724699fe951418eb7a03.png" alt="image" class="about__img">
+              
+            </div>
+          </div>
+        </section>
+
+        <!-- my skills section -->
+
+        <section class="services section" id="services">
+  <h2 class="section__title">My Services</h2>
+
+  <div class="services__container container grid">
+    <article class="services__card">
+      <i class="fa-solid fa-pen-nib services__icon"></i>
+      <h3 class="services__title">UI/UX <br> Design</h3>
+      <p class="services__description">
+        Creating intuitive, user-centric interfaces that focus on accessibility, 
+        visual hierarchy, and seamless user journeys.
+      </p>
+      <a href="#contact" class="button button__ghost services__button">Learn More</a>
+    </article>
+
+    <article class="services__card">
+      <i class="fa-solid fa-code services__icon"></i>
+      <h3 class="services__title">Front End <br> Development</h3>
+      <p class="services__description">
+        Building responsive, high-performance websites using modern frameworks 
+        and clean, maintainable CSS/JavaScript.
+      </p>
+      <a href="#contact" class="button button__ghost services__button">Learn More</a>
+    </article>
+
+    <article class="services__card">
+      <i class="fa-solid fa-server services__icon"></i>
+      <h3 class="services__title">Back End <br> Development</h3>
+      <p class="services__description">
+        Developing robust server-side logic, database management, and 
+        secure API integrations to power complex applications.
+      </p>
+      <a href="#contact" class="button button__ghost services__button">Learn More</a>
+    </article>
+  </div>
+</section>
+
+            <!-- skills section -->
+        <section class="skills section" id="skills">
+  <h2 class="section__title">My Skills</h2>
+
+  <div class="skills__container container grid">
+    <div class="skills__content">
+      <h3 class="skills__subtitle">Technical Skills</h3>
+
+      <div class="skills__list grid">
+        <div class="skills__data">
+          <div class="skills__titles">
+            <h3 class="skills__name">Photography</h3>
+            <span class="skills__number">90%</span>
+          </div>
+          <div class="skills__bar">
+            <span class="skills__percentage photography"></span>
+          </div>
+        </div>
+
+        <div class="skills__data">
+          <div class="skills__titles">
+            <h3 class="skills__name">Web Development</h3>
+            <span class="skills__number">75%</span>
+          </div>
+          <div class="skills__bar">
+            <span class="skills__percentage webdev"></span>
+          </div>
+        </div>
+
+        <div class="skills__data">
+          <div class="skills__titles">
+            <h3 class="skills__name">UI/UX Design</h3>
+            <span class="skills__number">80%</span>
+          </div>
+          <div class="skills__bar">
+            <span class="skills__percentage design"></span>
+          </div>
+        </div>
+
+        <div class="skills__data">
+          <div class="skills__titles">
+            <h3 class="skills__name">Photoshop</h3>
+            <span class="skills__number">85%</span>
+          </div>
+          <div class="skills__bar">
+            <span class="skills__percentage photoshop"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills__content">
+      <h3 class="skills__subtitle">Professional Skills</h3>
+
+      <div class="skills__circle-container">
+        <div class="skills__circle-box">
+          <svg class="skills__circle-svg" viewBox="0 0 36 36">
+            <path class="skills__circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="skills__circle-fill" stroke-dasharray="95, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span class="skills__circle-text">95%</span>
+          <h4 class="skills__circle-name">Communication</h4>
+        </div>
+
+        <div class="skills__circle-box">
+          <svg class="skills__circle-svg" viewBox="0 0 36 36">
+            <path class="skills__circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="skills__circle-fill" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span class="skills__circle-text">85%</span>
+          <h4 class="skills__circle-name">Leadership</h4>
+        </div>
+
+        <div class="skills__circle-box">
+          <svg class="skills__circle-svg" viewBox="0 0 36 36">
+            <path class="skills__circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="skills__circle-fill" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span class="skills__circle-text">90%</span>
+          <h4 class="skills__circle-name">Teamwork</h4>
+        </div>
+
+        <div class="skills__circle-box">
+          <svg class="skills__circle-svg" viewBox="0 0 36 36">
+            <path class="skills__circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="skills__circle-fill" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span class="skills__circle-text">80%</span>
+          <h4 class="skills__circle-name">Creativity</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+            <!-- projects section -->
+<section class="projects section" id="projects">
+  <h2 class="section__title">Latest Projects</h2>
+
+  <div class="projects__container container grid">
+    <article class="projects__card">
+      <div class="projects__image-box">
+        <img src="./images_portfolio/patient-dash.jpg" alt="Patient Management" class="projects__img">
+      </div>
+      
+      <div class="projects__content">
+        <h3 class="projects__name">Patient Management Dashboard</h3>
+        <p class="projects__description">
+          A full-stack healthcare solution for tracking patient records and appointments.
+        </p>
+        <div class="projects__buttons">
+           <a href="#" class="projects__link"><i class="fa-solid fa-link"></i> Demo</a>
+           <a href="#" class="projects__link"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="projects__card">
+      <div class="projects__image-box">
+        <img src="./images_portfolio/portfolio-v1.jpg" alt="Personal Portfolio" class="projects__img">
+      </div>
+      
+      <div class="projects__content">
+        <h3 class="projects__name">Personal Portfolio</h3>
+        <p class="projects__description">
+          A high-performance responsive portfolio with 3D animations and glassmorphism.
+        </p>
+        <div class="projects__buttons">
+           <a href="#" class="projects__link"><i class="fa-solid fa-link"></i> Demo</a>
+           <a href="#" class="projects__link"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="projects__card">
+      <div class="projects__image-box">
+        <img src="./images_portfolio/ui-ux-design.jpg" alt="UI/UX Design" class="projects__img">
+      </div>
+      
+      <div class="projects__content">
+        <h3 class="projects__name">UI/UX Design</h3>
+        <p class="projects__description">
+          Modern interface design focused on user accessibility and dark-themed aesthetics.
+        </p>
+        <div class="projects__buttons">
+           <a href="#" class="projects__link"><i class="fa-solid fa-link"></i> Demo</a>
+           <a href="#" class="projects__link"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+                    <!-- contact -->
+        </section>
+<section class="contact section" id="contact">
+  <h2 class="section__title">Get In Touch</h2>
+
+  <div class="contact__container container grid">
+    <div class="contact__data">
+      <div class="contact__card">
+        <i class="fa-regular fa-envelope contact__card-icon"></i>
+        <h3 class="contact__card-title">Email Me</h3>
+        <span class="contact__card-data">obimakuo181@gmail.com</span>
+        <a href="mailto:hello@makuo.dev" class="contact__button">
+          Write me <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="contact__card">
+        <i class="fa-brands fa-whatsapp contact__card-icon"></i>
+        <h3 class="contact__card-title">WhatsApp</h3>
+        <span class="contact__card-data">+123 701 505 8379</span>
+        <a href="https://wa.me/2347015058379" target="_blank" class="contact__button">
+          Message me <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact__content">
+      <form action="" class="contact__form" id="contact__form">
+        <div class="contact__form-div">
+          <label class="contact__form-tag">Names</label>
+          <input type="text" placeholder="Insert your name" class="contact__form-input">
+        </div>
+
+        <div class="contact__form-div">
+          <label class="contact__form-tag">Mail</label>
+          <input type="email" placeholder="Insert your email" class="contact__form-input">
+        </div>
+
+        <div class="contact__form-div contact__form-area">
+          <label class="contact__form-tag">Project</label>
+          <textarea name="" id="" cols="30" rows="10" placeholder="Write your project" class="contact__form-input"></textarea>
+        </div>
+
+        <button class="button contact__submit">
+          Send Message <i class="fa-regular fa-paper-plane"></i>
+        </button>
+        
+        <p class="contact__message" id="contact__message"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="contact__data">
+  <div class="contact__card">
+    <i class="fa-regular fa-envelope contact__card-icon"></i>
+    <h3 class="contact__card-title">Email</h3>
+    <span class="contact__card-data">obimakuo52@gmail.com</span>
+    <a href="mailto:obimakuo52@gmail.com" class="contact__button">
+      Write me <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="contact__card">
+    <i class="fa-solid fa-phone contact__card-icon"></i>
+    <h3 class="contact__card-title">Phone</h3>
+    <span class="contact__card-data">+234-7015058379</span>
+    <a href="tel:+2347015058379" class="contact__button">
+      Call me <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="contact__card">
+    <i class="fa-solid fa-location-dot contact__card-icon"></i>
+    <h3 class="contact__card-title">Location & Availability</h3>
+    <span class="contact__card-data">Sabon-Gari-Kano</span>
+    <span class="contact__card-data" style="color: var(--first-color); font-weight: 500;">
+      Mon-Fri, 9AM-6PM
+    </span>
+  </div>
+</div>
+                  <!-- SOCIAL LINKS -->
+              <div class="contact__social">
+                <a href="https://wa.me/2347015058379" target="_blank" class="contact__link">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="https://www.facebook.com/share/1FanBwsQgj/" target="_blank" class="contact__link">
+                  <i class="fa-brands fa-facebook-messenger"></i>
+                </a>
+
+                <a href="https://t.me/Austin_10000" target="_blank" class="contact__link">
+                  <i class="fa-brands fa-telegram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+    </main>
+
+          <!-- footer -->
+    <footer class="footer">
+      <div class="footer__container container grid">
+        <a href="#" class="footer__logo">Gabriel</a>
+
+        <div class="footer__links">
+          <a href="#home" class="footer__link">Home</a>
+
+          <a href="#about" class="footer__link">About</a>
+
+          <a href="#projects" class="footer__link">Projects</a>
+
+        </div>
+                <!-- ADD YOUR SOCIAL LINKS LATER  -->
+        <div class="footer__social">
+          <a href="#" target="_blank" class="footer__social-link">
+             <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="#" target="_blank" class="footer__social-link">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="#" target="_blank" class="footer__social-link">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+
+          <a href="#" target="_blank" class="footer__social-link">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <span class="footer__copy">
+        <p>&#169; 2026 Makuo Obi. All rights reserved.</p>
+      </span>
+    </footer>
+
+
+            <!-- SCROLL UP -->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+          <!-- NEW SETUP -->
+    <!-- PROJECT MODAL -->
+    <div class="project-modal" id="projectModal">
+      <div class="project-modal__content">
+        <span class="project-modal__close" id="modalClose">&times;</span>
+
+        <div class="project-modal__images" id="modalImages">
+          <!-- Images will be inserted dynamically -->
+        </div>
+      </div>
+    </div>       
+
+                 <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+                <!-- typed js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"></script>
+    
+                 <!-- email js -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+                 <!-- main js    -->
+   <script src="./main.js"></script>
+  </body>
+</html>
