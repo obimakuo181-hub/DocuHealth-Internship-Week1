@@ -89,7 +89,6 @@ nav .logo_name {
     white-space: nowrap;
 }
 
-/* Hide logo name when sidebar is closed on desktop */
 nav.close .logo_name {
     opacity: 0;
     pointer-events: none;
@@ -134,7 +133,6 @@ nav .menu-items li {
     white-space: nowrap;
 }
 
-/* Hide link names when sidebar is closed on desktop */
 nav.close li a .link_name {
     opacity: 0;
     pointer-events: none;
@@ -350,24 +348,22 @@ nav.close ~ .dashboard .top {
 
 /* --- ACTIVITY DATA --- */
 .activity .activity-data {
-display: flex;
+    display: flex;
     width: 100%;
-    justify-content: space-between; /* Spreads columns across the whole page */
+    justify-content: space-between; /* Spreads columns across big screen */
     padding-bottom: 10px;
 }
 
 .activity-data .data {
-display: flex;
+    display: flex;
     flex-direction: column;
-    flex: 1; /* This forces columns to grow and fill the screen */
+    flex: 1; /* Forces columns to stretch to fill the page */
     margin: 0 15px;
 }
 
 .activity-data .data-title {
- font-size: 18px;
-    font-weight: 400;
-    margin-top: 20px;
-    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 500;
     color: var(--text-color);
 }
 
@@ -381,37 +377,36 @@ display: flex;
 
 /* --- MOBILE RESPONSIVENESS FIXES --- */
 @media screen and (max-width: 1000px) {
-   nav { width: 73px; }
-    nav:not(.close) { width: 250px; }
-
-    nav ~ .dashboard, 
-    nav ~ .dashboard .top {
-        left: 73px;
-        width: calc(100% - 73px);
+    body {
+        min-height: auto;
     }
 
-    /* Force text hidden on mobile when closed */
+    nav { width: 73px; }
+    
+    /* When Sidebar is Opened on mobile */
+    nav:not(.close) { width: 250px; }
+
+    /* Fix: Show text only when sidebar is NOT closed */
     nav .link_name, 
     nav .logo_name { 
         display: none; 
         opacity: 0;
     }
     
-    /* Show text on mobile when opened */
     nav:not(.close) .link_name, 
     nav:not(.close) .logo_name { 
         display: block; 
         opacity: 1;
     }
 
-    /* Keep dashboard content in place when menu is closed */
-    nav ~ .dashboard, 
-    nav ~ .dashboard .top {
+    /* Layout sync for mobile */
+    .dashboard, 
+    .dashboard .top {
         left: 73px;
         width: calc(100% - 73px);
+        min-height: auto;
     }
 
-    /* Adjust dashboard content when menu slides open */
     nav:not(.close) ~ .dashboard, 
     nav:not(.close) ~ .dashboard .top {
         left: 250px;
@@ -424,6 +419,15 @@ display: flex;
         width: calc(100% / 2 - 15px);
         margin-top: 15px;
     }
+
+    /* On smaller mobile, allow horizontal scroll instead of squishing */
+    .activity .activity-data {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    .activity-data .data {
+        flex: none;
+    }
 }
 
 @media screen and (max-width: 560px) {
@@ -434,9 +438,13 @@ display: flex;
 
 @media screen and (max-width: 500px) {
     .dashboard .top .sidebar-toggle {
-        display: block; /* Ensure hamburger stays visible */
+        display: block;
     }
     .top .search-box {
         margin: 0 10px;
+    }
+    /* Fix for extra bottom space */
+    .dash-content {
+        padding-bottom: 20px;
     }
 }
