@@ -21,10 +21,28 @@ body {
 
 /* Navbar */
 .navbar {
+    position: fixed; /* Stays at the top while scrolling */
+    top: 20px;
+    left: 5%;
+    right: 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    padding: 15px 40px;
+    z-index: 1000; /* Stays above all other content */
+    
+    /* The Glass Effect */
+    background: rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(15px); /* This creates the frosted glass look */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Ensure the hero doesn't get hidden under the fixed nav */
+header.hero {
+    padding-top: 140px; 
 }
 
 .nav-links {
@@ -427,6 +445,36 @@ body {
     opacity: 0.7;
 }
 
+/* The initial hidden state */
+.reveal {
+    opacity: 0;
+    visibility: hidden; /* Add this line */
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* The state triggered by JavaScript */
+.reveal.active {
+    opacity: 1 !important;
+    visibility: visible !important; /* Add this line */
+    transform: translateY(0) !important;
+}
+
+/* Staggering for the 3-Column Reviews */
+.review-card:nth-child(2) { transition-delay: 0.2s; }
+.review-card:nth-child(3) { transition-delay: 0.4s; }
+
+/* Staggering for the 4-Column Team Cards */
+.team-card:nth-child(2) { transition-delay: 0.1s; }
+.team-card:nth-child(3) { transition-delay: 0.2s; }
+.team-card:nth-child(4) { transition-delay: 0.3s; }
+
+.btn-main:hover, .btn-sub-nav:hover, .team-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
 /* Final Mobile Fixes */
 @media (max-width: 768px) {
     .detail-row, .detail-row.reverse {
@@ -471,3 +519,4 @@ body {
     .hero-text h1 { font-size: 2.5rem; }
     .nav-links { display: none; } /* Hide nav on mobile for simplicity */
 }
+
