@@ -89,6 +89,7 @@ nav .logo_name {
     white-space: nowrap;
 }
 
+/* Hide logo name when sidebar is closed on desktop */
 nav.close .logo_name {
     opacity: 0;
     pointer-events: none;
@@ -115,16 +116,6 @@ nav .menu-items li {
     transition: var(--tran-03);
 }
 
-.nav-links li a:hover:before {
-    content: "";
-    position: absolute;
-    left: -7px;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-}
-
 .menu-items li a i {
     font-size: 24px;
     min-width: 45px;
@@ -143,403 +134,10 @@ nav .menu-items li {
     white-space: nowrap;
 }
 
+/* Hide link names when sidebar is closed on desktop */
 nav.close li a .link_name {
     opacity: 0;
     pointer-events: none;
-    display: none; /* Prevents overlap/peeking text */
-}
-
-.nav-links li a:hover {
-    background-color: var(--primary-color);
-    border-radius: 6px;
-}
-
-.nav-links li a:hover i,
-.nav-links li a:hover .link_name {
-    color: #fff;
-}
-
-.menu-items .logout-mode {
-    padding-top: 10px;
-    border-top: 1px solid var(--border-color);
-}
-
-/* --- DARK MODE TOGGLE FIXES --- */
-.mode {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
-
-.mode-text {
-    display: flex;
-    align-items: center;
-}
-
-.menu-items .mode-toggle {
-    height: 50px;
-    min-width: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.mode-toggle .switch {
-    position: relative;
-    display: inline-block;
-    height: 22px;
-    width: 40px;
-    border-radius: 25px;
-    background-color: var(--toggle-color);
-}
-
-.switch::before {
-    content: "";
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background-color: var(--panel-color);
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    transition: var(--tran-03);
-}
-
-body.dark .switch::before {
-    left: 20px;
-}
-
-/* Hide the "Dark Mode" text completely when sidebar is closed */
-nav.close .mode-text .link_name {
-    display: none;
-}
-
-/* --- DASHBOARD LAYOUT --- */
-.dashboard {
-    position: relative;
-    left: 250px;
-    width: calc(100% - 250px);
-    min-height: 100vh;
-    background-color: var(--panel-color);
-    padding: 0 14px;
-    transition: var(--tran-05);
-}
-
-nav.close ~ .dashboard {
-    left: 73px;
-    width: calc(100% - 73px);
-}
-
-.dashboard .top {
-    position: fixed;
-    top: 0;
-    left: 250px;
-    width: calc(100% - 250px);
-    z-index: 100;
-    background-color: var(--panel-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 14px;
-    transition: var(--tran-05);
-}
-
-nav.close ~ .dashboard .top {
-    left: 73px;
-    width: calc(100% - 73px);
-}
-
-.dashboard .top .sidebar-toggle {
-    font-size: 26px;
-    color: var(--text-color);
-    cursor: pointer;
-}
-
-.dashboard .top .search-box {
-    position: relative;
-    height: 45px;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 30px;
-}
-
-.top .search-box input {
-    height: 100%;
-    width: 100%;
-    padding: 0 25px 0 50px;
-    font-size: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: var(--panel-color);
-    color: var(--text-color);
-    outline: none;
-}
-
-.top .search-box i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 22px;
-    color: var(--black-light-color);
-}
-
-.top img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.dashboard .dash-content {
-    padding-top: 80px; 
-}
-
-.dash-content .title {
-    display: flex;
-    align-items: center;
-    margin: 30px 0;
-}
-
-.dash-content .title i {
-    height: 35px;
-    width: 35px;
-    background-color: var(--primary-color);
-    border-radius: 6px;
-    color: var(--title-icon-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-}
-
-.dash-content .title .text {
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--text-color);
-    margin-left: 10px;
-}
-
-.dash-content .boxes {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.dash-content .boxes .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
-    width: calc(100% / 3 - 15px);
-    padding: 15px 20px;
-    background-color: var(--box1-color);
-    transition: var(--tran-05);
-}
-
-.boxes .box i {
-    font-size: 35px;
-    color: var(--title-icon-color);
-}
-
-.boxes .box .text {
-    white-space: nowrap;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.boxes .box .number {
-    font-size: 40px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.boxes .box.box2 { background-color: var(--box2-color); }
-.boxes .box.box3 { background-color: var(--box3-color); }
-
-/* --- ACTIVITY DATA (SCROLL FIX) --- */
-.activity .activity-data {
-    display: flex;
-    width: 100%;
-    overflow-x: auto; 
-    padding-bottom: 10px;
-}
-
-.activity-data .data {
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px;
-    flex-shrink: 0; 
-}
-
-.activity-data .data-title {
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.activity-data .data-list {
-    font-size: 18px;
-    font-weight: 400;
-    margin-top: 20px;
-    white-space: nowrap;
-    color: var(--text-color);
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-:root {
-    --primary-color: #0E4BF1;
-    --panel-color: #FFF;
-    --text-color: #000;
-    --black-light-color: #707070;
-    --border-color: #e6e5e5;
-    --toggle-color: #DDD;
-    --box1-color: #4DA3FF;
-    --box2-color: #FFE6AC;
-    --box3-color: #E7D1FC;
-    --title-icon-color: #fff;
-
-    /* transitions */
-    --tran-05: all 0.5s ease;
-    --tran-03: all 0.3s ease;
-    --tran-02: all 0.2s ease;
-}
-
-body {
-    min-height: 100vh;
-    background-color: var(--panel-color);
-    color: var(--text-color);
-    transition: var(--tran-03);
-}
-
-body.dark {
-    --primary-color: #3A3B3C;
-    --panel-color: #242526;
-    --text-color: #CCC;
-    --black-light-color: #CCC;
-    --border-color: #4d4d4d;
-    --toggle-color: #FFF;
-    --box1-color: #3A3B3C;
-    --box2-color: #3A3B3C;
-    --box3-color: #3A3B3C;
-    --title-icon-color: #CCC;
-}
-
-/* --- SIDEBAR --- */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    padding: 10px 14px;
-    background-color: var(--panel-color);
-    border-right: 1px solid var(--border-color);
-    transition: var(--tran-05);
-    z-index: 100;
-}
-
-nav.close {
-    width: 73px;
-}
-
-nav .logo-name {
-    display: flex;
-    align-items: center;
-}
-
-nav .logo-image {
-    display: flex;
-    justify-content: center;
-    min-width: 45px;
-}
-
-nav .logo-image img {
-    width: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-nav .logo_name {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-left: 14px;
-    transition: var(--tran-05);
-    white-space: nowrap;
-}
-
-nav.close .logo_name {
-    opacity: 0;
-    pointer-events: none;
-}
-
-nav .menu-items {
-    margin-top: 40px;
-    height: calc(100% - 90px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-nav .menu-items li {
-    list-style: none;
-}
-
-.menu-items li a {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    text-decoration: none;
-    position: relative;
-    transition: var(--tran-03);
-}
-
-.nav-links li a:hover:before {
-    content: "";
-    position: absolute;
-    left: -7px;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-}
-
-.menu-items li a i {
-    font-size: 24px;
-    min-width: 45px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-color);
-}
-
-.menu-items li a .link_name {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--black-light-color);
-    transition: var(--tran-05);
-    white-space: nowrap;
-}
-
-nav.close li a .link_name {
-    opacity: 0;
-    pointer-events: none;
-    display: none; 
 }
 
 .nav-links li a:hover {
@@ -603,11 +201,6 @@ nav.close li a .link_name {
 
 body.dark .switch::before {
     left: 20px;
-}
-
-/* Force text hiding on close */
-nav.close .mode-text .link_name {
-    display: none;
 }
 
 /* --- DASHBOARD LAYOUT --- */
@@ -757,22 +350,24 @@ nav.close ~ .dashboard .top {
 
 /* --- ACTIVITY DATA --- */
 .activity .activity-data {
-    display: flex;
+display: flex;
     width: 100%;
-    overflow-x: auto; 
+    justify-content: space-between; /* Spreads columns across the whole page */
     padding-bottom: 10px;
 }
 
 .activity-data .data {
-    display: flex;
+display: flex;
     flex-direction: column;
+    flex: 1; /* This forces columns to grow and fill the screen */
     margin: 0 15px;
-    flex-shrink: 0; 
 }
 
 .activity-data .data-title {
-    font-size: 20px;
-    font-weight: 500;
+ font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    white-space: nowrap;
     color: var(--text-color);
 }
 
@@ -784,40 +379,41 @@ nav.close ~ .dashboard .top {
     color: var(--text-color);
 }
 
-/* --- MEDIA QUERIES --- */
+/* --- MOBILE RESPONSIVENESS FIXES --- */
 @media screen and (max-width: 1000px) {
-    nav {
-        width: 73px;
-    }
-    /* When "closed" (which actually opens it on mobile) */
-    nav.close {
-        width: 250px;
-    }
-    
-    /* Crucial fix for Dark Mode text on mobile */
-    nav .link_name,
-    nav .logo_name {
-        display: none;
-    }
+   nav { width: 73px; }
+    nav:not(.close) { width: 250px; }
 
-    nav.close .link_name,
-    nav.close .logo_name {
-        display: block;
-    }
-
-    nav ~ .dashboard {
-        left: 73px;
-        width: calc(100% - 73px);
-    }
-    nav.close ~ .dashboard {
-        left: 250px;
-        width: calc(100% - 250px);
-    }
+    nav ~ .dashboard, 
     nav ~ .dashboard .top {
         left: 73px;
         width: calc(100% - 73px);
     }
-    nav.close ~ .dashboard .top {
+
+    /* Force text hidden on mobile when closed */
+    nav .link_name, 
+    nav .logo_name { 
+        display: none; 
+        opacity: 0;
+    }
+    
+    /* Show text on mobile when opened */
+    nav:not(.close) .link_name, 
+    nav:not(.close) .logo_name { 
+        display: block; 
+        opacity: 1;
+    }
+
+    /* Keep dashboard content in place when menu is closed */
+    nav ~ .dashboard, 
+    nav ~ .dashboard .top {
+        left: 73px;
+        width: calc(100% - 73px);
+    }
+
+    /* Adjust dashboard content when menu slides open */
+    nav:not(.close) ~ .dashboard, 
+    nav:not(.close) ~ .dashboard .top {
         left: 250px;
         width: calc(100% - 250px);
     }
@@ -838,6 +434,9 @@ nav.close ~ .dashboard .top {
 
 @media screen and (max-width: 500px) {
     .dashboard .top .sidebar-toggle {
-        display: none;
+        display: block; /* Ensure hamburger stays visible */
+    }
+    .top .search-box {
+        margin: 0 10px;
     }
 }
