@@ -173,4 +173,26 @@ modal.addEventListener('click', (e) => {
   if(e.target === modal){
     modal.classList.remove('active')
   }
-})                  
+})  
+const animateSkills = () => {
+  const skills = document.querySelectorAll('.skills__percentage')
+
+  skills.forEach(skill => {
+    const value = skill.getAttribute('data-progress')
+    skill.style.width = value
+  })
+}
+
+// Trigger when section is visible
+const skillsSection = document.querySelector('#skills')
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateSkills()
+      observer.unobserve(entry.target) // run once
+    }
+  })
+}, { threshold: 0.3 })
+
+observer.observe(skillsSection)                
