@@ -77,6 +77,17 @@ header h1 {
   background-color: #0839a9;
 }
 
+.loading {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 40px;
+  color: #0e4bf1;
+  display: none;
+}
+
+
+
 /* Patient List */
 .patient-list {
   display: flex;

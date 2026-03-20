@@ -17,6 +17,7 @@ const patientList = document.getElementById("patientList");
 const searchInput = document.getElementById("search");
 const statusFilter = document.getElementById("statusFilter");
 const sortBtn = document.getElementById("sortBtn");
+const loading = document.getElementById("loading");
 
 // STATE
 let filteredPatients = [...patients];
@@ -38,22 +39,38 @@ function renderPatients(data) {
   `).join('');
 }
 
+function showLoading() {
+  if (loading) loading.style.display = "block";
+  if (patientList) patientList.style.opacity = "0.5";
+}
+
+function hideLoading() {
+  if (loading) loading.style.display = "none";
+  if (patientList) patientList.style.opacity = "1";
+}
+
 // Apply search, filter, sort
 function applyFilters() {
-  const searchValue = searchInput.value.toLowerCase();
-  const statusValue = statusFilter.value;
+  showLoading(); // 👈 show loader
 
-  filteredPatients = patients
-    .filter(p => p.name.toLowerCase().includes(searchValue))
-    .filter(p => statusValue === "All" || p.status === statusValue);
+  setTimeout(() => {
+    const searchValue = searchInput.value.toLowerCase();
+    const statusValue = statusFilter.value;
 
-  if (sortOrder === "newest") {
-    filteredPatients.sort((a, b) => new Date(b.lastVisit) - new Date(a.lastVisit));
-  } else if (sortOrder === "oldest") {
-    filteredPatients.sort((a, b) => new Date(a.lastVisit) - new Date(b.lastVisit));
-  }
+    filteredPatients = patients
+      .filter(p => p.name.toLowerCase().includes(searchValue))
+      .filter(p => statusValue === "All" || p.status === statusValue);
 
-  renderPatients(filteredPatients);
+    if (sortOrder === "newest") {
+      filteredPatients.sort((a, b) => new Date(b.lastVisit) - new Date(a.lastVisit));
+    } else {
+      filteredPatients.sort((a, b) => new Date(a.lastVisit) - new Date(b.lastVisit));
+    }
+
+    renderPatients(filteredPatients);
+
+    hideLoading(); // 👈 hide loader after rendering
+  }, 500); // simulate delay (0.5s)
 }
 
 // Toggle sort order

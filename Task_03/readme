@@ -1,5 +1,7 @@
 The Patient Dashboard is a centralized interface that allows users to easily manage and monitor their health information. It provides quick access to medical records, appointment history, prescriptions, and personal details. The dashboard is designed for simplicity and responsiveness, enabling patients to navigate through their data, update information, and stay informed about their healthcare in real time.
 
+I also implemented a loading state to simulate asynchronous data fetching.
+When a user interacts with the filters, improving perceived performance and user experience.
 
 How it works =
 
