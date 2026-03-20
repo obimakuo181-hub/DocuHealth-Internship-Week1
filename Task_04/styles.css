@@ -28,6 +28,7 @@ header.hero {
     display: flex;
     list-style: none;
     gap: 40px;
+    display: none;
 }
 
 .nav-links a {
@@ -199,11 +200,7 @@ header.hero {
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
+
 
 .nav-links a {
     text-decoration: none;
@@ -767,10 +764,6 @@ header.hero {
     }
 } 
 
-/* --- 1. MOBILE FIRST (Default State) --- */
-.nav-links {
-    display: none; 
-}
 
 .hamburger {
     display: flex; 
@@ -929,12 +922,6 @@ header.hero {
         box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     }
 
-    
-    .nav-links.active {
-        right: 0; 
-    }
-
-    
     .nav-cta.desktop-only {
         display: none;
     }

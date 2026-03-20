@@ -1,68 +1,101 @@
+
+// ELEMENT SELECTORS
+
 const hamburger = document.getElementById('hamburger');
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('overlay');
+const progressBar = document.getElementById('progress-bar');
+const backToTopBtn = document.getElementById('backToTop');
+const revealElements = document.querySelectorAll('.reveal');
+const sidebarLinks = document.querySelectorAll('.sidebar-links a');
 
-// TOGGLE FUNCTION
+
+// MENU TOGGLE
 function toggleMenu() {
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
-    hamburger.classList.toggle('toggle');
+    if (sidebar) sidebar.classList.toggle('active');
+    if (overlay) overlay.classList.toggle('active');
+    if (hamburger) hamburger.classList.toggle('toggle');
 }
 
-// Event Listeners
+// Open/Close menu
 if (hamburger) {
     hamburger.addEventListener('click', toggleMenu);
 }
 
+// Close menu when clicking overlay
 if (overlay) {
     overlay.addEventListener('click', toggleMenu);
 }
 
-// Close when link is clicked
-document.querySelectorAll('.sidebar-links a').forEach(link => {
+// Close menu when clicking any sidebar link
+sidebarLinks.forEach(link => {
     link.addEventListener('click', toggleMenu);
 });
 
-// --- REVEAL ON SCROLL ---
-function reveal() {
-    const reveals = document.querySelectorAll(".reveal");
-    for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
+
+
+// REVEAL ON SCROLL
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+
         if (elementTop < windowHeight - 100) {
-            reveals[i].classList.add("active");
+            el.classList.add('active');
         }
+    });
+}
+
+
+// SCROLL PROGRESS BAR
+function updateProgressBar() {
+    if (!progressBar) return;
+
+    const winScroll = document.documentElement.scrollTop;
+    const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+}
+
+
+// BACK TO TOP BUTTON
+function handleBackToTop() {
+    if (!backToTopBtn) return;
+
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
     }
 }
 
-// --- SCROLL PROGRESS ---
-window.onscroll = () => {
-    const progressBar = document.getElementById("progress-bar");
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    if (progressBar) progressBar.style.width = scrolled + "%";
-    
-    reveal();
-};
-const backToTopBtn = document.getElementById("backToTop");
-
-// Show button when scrolling down
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add("show");
-    } else {
-        backToTopBtn.classList.remove("show");
-    }
-});
-
-// Smooth scroll to top
-backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+// Scroll to top
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
+}
+
+
+
+// SCROLL EVENT (COMBINED)
+window.addEventListener('scroll', () => {
+    updateProgressBar();
+    revealOnScroll();
+    handleBackToTop();
 });
 
-window.addEventListener("DOMContentLoaded", reveal);
 
+
+// INITIAL LOAD
+window.addEventListener('DOMContentLoaded', () => {
+    revealOnScroll();
+});
